@@ -300,7 +300,7 @@ services:
       - api_server
     restart: always
     environment:
-      - INTERNAL_URL=http://api_server:8080
+      - INTERNAL_URL=http://api_server:8008
       - WEB_DOMAIN=${WEB_DOMAIN:-}
       - THEME_IS_DARK=${THEME_IS_DARK:-}
       - DISABLE_LLM_DOC_RELEVANCE=${DISABLE_LLM_DOC_RELEVANCE:-}
@@ -415,7 +415,7 @@ services:
       - "8009:80"
       - "3000:80" # allow for localhost:3000 usage, since that is the norm
     volumes:
-      - deployment/data/nginx:/etc/nginx/conf.d
+      - /deployment/data/nginx:/etc/nginx/conf.d
     logging:
       driver: json-file
       options:
